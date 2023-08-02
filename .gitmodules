@@ -1,0 +1,6 @@
+[submodule "ingress-backend"]
+	path = ingress-backend
+	url = https://github.com/kunalvrm555/ingress-backend.git
+[submodule "ingress-frontend"]
+	path = ingress-frontend
+	url = https://github.com/kunalvrm555/ingress-frontend.git
