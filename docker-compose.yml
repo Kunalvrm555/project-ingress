@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  postgres:
+    build:
+      context: ./postgres
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pgdata:/var/lib/postgresql/data
+
+  ingress-backend:
+    build:
+      context: ./ingress-backend
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8000"
+    restart: always
+
+  ingress-frontend:
+    build:
+      context: ./ingress-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - ingress-backend
+
+volumes:
+  pgdata:
