@@ -2,6 +2,7 @@ version: '3'
 
 services:
   postgres:
+    container_name: ingress-db
     build:
       context: ./postgres
     volumes:
@@ -9,6 +10,7 @@ services:
       - pgdata:/var/lib/postgresql/data
 
   ingress-backend:
+    container_name: ingress-backend
     build:
       context: ./ingress-backend
     depends_on:
@@ -18,6 +20,7 @@ services:
     restart: always
 
   ingress-frontend:
+    container_name: ingress-frontend
     build:
       context: ./ingress-frontend
     ports:
