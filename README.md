@@ -37,6 +37,10 @@ Here, `19.168.121.145` is the IP address of your host machine. Ensure this value
 ## Deployment
 
 1. **Environment Setup**: First and foremost, set all necessary environment variables. Refer to `.env.example` within the respective service directories (backend or frontend) for guidance.
+To fetch the submodules, run the following command : 
+```bash
+git submodule update --init --recursive
+```
 
 2. **Starting the Services**: With Docker and Docker Compose installed, navigate to the project's root directory. Deploy all services with:
 
