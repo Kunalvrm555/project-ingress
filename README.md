@@ -13,7 +13,13 @@ project-ingress serves as the official logging system for student check-in and c
 
 ## Components
 
-1. **PostgreSQL**: Customized with the Alpine-based PostgreSQL image, this component initializes the `ingress` database and establishes relevant tables. Its configuration is present within the `postgres` directory.
+1. **PostgreSQL**: Customized with the Alpine-based PostgreSQL image, this component initializes the `ingress` database and establishes relevant tables. Its configuration is present within the `postgres` directory. Prior to running, ensure the following environment variables are set (you can refer to `.env.example`):
+
+```env
+POSTGRES_DB=
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+```
 
 2. **ingress-backend**: A Go-based backend service. Prior to running, ensure the following environment variables are set (you can refer to `.env.example`):
 
@@ -30,9 +36,9 @@ PASSWORD=
 
 3. **ingress-frontend**: A React-driven frontend client that communicates with the backend. It requires the setting of the `REACT_APP_API_URL` environment variable which should point to the IP address of the host machine on port `8080`. For instance:
 ```env
-REACT_APP_API_URL=http://19.168.121.145:8080
+REACT_APP_API_URL=http://19.168.121.145:8000
 ```
-Here, `19.168.121.145` is the IP address of your host machine. Ensure this value always ends with `:8080`.
+Here, `19.168.121.145` is the IP address of your host machine. Ensure this value always ends with `:8000`.
 
 ## Deployment
 
