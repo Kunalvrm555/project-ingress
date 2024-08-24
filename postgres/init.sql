@@ -24,11 +24,3 @@ CREATE TABLE IF NOT EXISTS logs (
     checkintime TIMESTAMP,
     checkouttime TIMESTAMP
 );
-
--- Create users table
-CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    usertype VARCHAR(50) NOT NULL
-);
